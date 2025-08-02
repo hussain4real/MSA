@@ -1,7 +1,7 @@
 ---
 mode: agent
 ---
-I want to create model, migration, factory and seeder for the following models:
+I want to create model, migration, factory and seeder for the following models below. you can modify the fields type to sensible defaults.
 
 ## Organization:
 - **Model**: `Organization`
