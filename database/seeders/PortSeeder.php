@@ -23,10 +23,11 @@ class PortSeeder extends Seeder
             ['code' => 'JPYOK', 'name' => 'Port of Yokohama', 'country' => 'Japan', 'type' => 'Container'],
         ];
 
-        $user = \App\Models\User::first();
+        $organization = \App\Models\Organization::first();
 
         foreach ($majorPorts as $port) {
             \App\Models\Port::create([
+                'organization_id' => $organization->id,
                 'port_code' => $port['code'],
                 'port_name' => $port['name'],
                 'port_country' => $port['country'],
@@ -37,10 +38,6 @@ class PortSeeder extends Seeder
                 'vessel_size' => fake()->randomElement(['Medium', 'Large', 'Extra Large']),
                 'max_draft' => fake()->randomFloat(2, 10, 25),
                 'active_flag' => true,
-                'creation_date' => now(),
-                'created_by' => $user->id,
-                'last_modified_date' => now(),
-                'last_modified_by' => $user->id,
             ]);
         }
 

@@ -21,6 +21,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'organization_id',
     ];
 
     /**
@@ -44,6 +45,12 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    // Main organization relationship
+    public function organization()
+    {
+        return $this->belongsTo(Organization::class);
     }
 
     // Relationships for created records

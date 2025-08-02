@@ -25,10 +25,7 @@ return new class extends Migration
             $table->boolean('active_flag')->default(true);
             $table->string('org_city');
             $table->string('org_country');
-            $table->timestamp('creation_date')->useCurrent();
-            $table->foreignId('created_by')->constrained('users');
-            $table->timestamp('last_modified_date')->useCurrent()->useCurrentOnUpdate();
-            $table->foreignId('last_modified_by')->constrained('users');
+           
             $table->timestamps();
         });
     }

@@ -29,10 +29,6 @@ class OrganizationFactory extends Factory
             'active_flag' => $this->faker->boolean(90),
             'org_city' => $this->faker->city(),
             'org_country' => $this->faker->country(),
-            'creation_date' => $this->faker->dateTimeBetween('-2 years', 'now'),
-            'created_by' => \App\Models\User::factory(),
-            'last_modified_date' => $this->faker->dateTimeBetween('-1 year', 'now'),
-            'last_modified_by' => \App\Models\User::factory(),
         ];
     }
 }

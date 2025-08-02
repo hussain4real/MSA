@@ -18,7 +18,7 @@ class BankSeeder extends Seeder
         foreach ($organizations as $organization) {
             \App\Models\Bank::factory()
                 ->count(rand(1, 3))
-                ->create(['org_id' => $organization->id]);
+                ->create(['organization_id' => $organization->id]);
         }
     }
 }

@@ -17,6 +17,7 @@ class PortFactory extends Factory
     public function definition(): array
     {
         return [
+            'organization_id' => \App\Models\Organization::factory(),
             'port_code' => $this->faker->unique()->bothify('???##'),
             'port_name' => $this->faker->city() . ' Port',
             'port_country' => $this->faker->country(),
@@ -27,10 +28,6 @@ class PortFactory extends Factory
             'vessel_size' => $this->faker->optional()->randomElement(['Small', 'Medium', 'Large', 'Extra Large']),
             'max_draft' => $this->faker->optional()->randomFloat(2, 5, 50),
             'active_flag' => $this->faker->boolean(90),
-            'creation_date' => $this->faker->dateTimeBetween('-2 years', 'now'),
-            'created_by' => \App\Models\User::factory(),
-            'last_modified_date' => $this->faker->dateTimeBetween('-1 year', 'now'),
-            'last_modified_by' => \App\Models\User::factory(),
         ];
     }
 }

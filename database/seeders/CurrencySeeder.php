@@ -23,19 +23,16 @@ class CurrencySeeder extends Seeder
             ['code' => 'CNY', 'name' => 'Chinese Yuan', 'country' => 'China', 'rate' => 6.4500],
         ];
 
-        $user = \App\Models\User::first();
+        $organization = \App\Models\Organization::first();
 
         foreach ($currencies as $currency) {
             \App\Models\Currency::create([
+                'organization_id' => $organization->id,
                 'currency_code' => $currency['code'],
                 'currency_name' => $currency['name'],
                 'currency_country' => $currency['country'],
                 'ex_rate' => $currency['rate'],
                 'active_flag' => true,
-                'creation_date' => now(),
-                'created_by' => $user->id,
-                'last_modified_date' => now(),
-                'last_modified_by' => $user->id,
             ]);
         }
     }

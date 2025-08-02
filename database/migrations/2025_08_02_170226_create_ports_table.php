@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('ports', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('organization_id')->nullable()->constrained()->onDelete('cascade');
             $table->string('port_code');
             $table->string('port_name');
             $table->string('port_country');
@@ -23,10 +24,7 @@ return new class extends Migration
             $table->string('vessel_size')->nullable();
             $table->decimal('max_draft', 8, 2)->nullable();
             $table->boolean('active_flag')->default(true);
-            $table->timestamp('creation_date')->useCurrent();
-            $table->foreignId('created_by')->constrained('users');
-            $table->timestamp('last_modified_date')->useCurrent()->useCurrentOnUpdate();
-            $table->foreignId('last_modified_by')->constrained('users');
+            
             $table->timestamps();
         });
     }

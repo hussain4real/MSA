@@ -16,7 +16,7 @@ class BanksTable
     {
         return $table
             ->columns([
-                TextColumn::make('org_id')
+                TextColumn::make('organization_id')
                     ->numeric()
                     ->sortable(),
                 TextColumn::make('bank_id')

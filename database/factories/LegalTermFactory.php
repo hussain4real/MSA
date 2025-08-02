@@ -17,7 +17,7 @@ class LegalTermFactory extends Factory
     public function definition(): array
     {
         return [
-            'org_id' => \App\Models\Organization::factory(),
+            'organization_id' => \App\Models\Organization::factory(),
             'terms_code' => $this->faker->unique()->bothify('TRM-###-??'),
             'terms_serial' => $this->faker->numerify('SER########'),
             'terms_title' => $this->faker->sentence(4),
@@ -27,10 +27,6 @@ class LegalTermFactory extends Factory
             'valid_from' => $this->faker->dateTimeBetween('-1 year', 'now'),
             'valid_to' => $this->faker->optional()->dateTimeBetween('now', '+2 years'),
             'active_flag' => $this->faker->boolean(90),
-            'creation_date' => $this->faker->dateTimeBetween('-2 years', 'now'),
-            'created_by' => \App\Models\User::factory(),
-            'last_modified_date' => $this->faker->dateTimeBetween('-1 year', 'now'),
-            'last_modified_by' => \App\Models\User::factory(),
         ];
     }
 }

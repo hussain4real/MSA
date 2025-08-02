@@ -86,3 +86,6 @@ The app implements a sophisticated light/dark theme system:
 **Note**: When creating model, migration, factory and seeder, use the `make:model --mfs` option.
 while for filament resource use the `make:filament-resource` command.
 to create enum use `make:enum` command.
+
+to create scope use `make:scope` command.
+to create observer use `make:observer` command.

@@ -30,15 +30,12 @@ class CurrencyFactory extends Factory
         $currency = $this->faker->randomElement($currencies);
 
         return [
+            'organization_id' => \App\Models\Organization::factory(),
             'currency_code' => $currency['code'],
             'currency_name' => $currency['name'],
             'currency_country' => $currency['country'],
             'ex_rate' => $this->faker->randomFloat(4, 0.1, 100),
             'active_flag' => $this->faker->boolean(90),
-            'creation_date' => $this->faker->dateTimeBetween('-2 years', 'now'),
-            'created_by' => \App\Models\User::factory(),
-            'last_modified_date' => $this->faker->dateTimeBetween('-1 year', 'now'),
-            'last_modified_by' => \App\Models\User::factory(),
         ];
     }
 }

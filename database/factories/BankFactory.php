@@ -17,7 +17,7 @@ class BankFactory extends Factory
     public function definition(): array
     {
         return [
-            'org_id' => \App\Models\Organization::factory(),
+            'organization_id' => \App\Models\Organization::factory(),
             'bank_id' => $this->faker->unique()->numerify('BNK########'),
             'bank_name' => $this->faker->company() . ' Bank',
             'address' => $this->faker->optional()->address(),
@@ -27,10 +27,6 @@ class BankFactory extends Factory
             'type' => $this->faker->optional()->randomElement(['Savings', 'Current', 'Business']),
             'currency' => $this->faker->currencyCode(),
             'active_flag' => $this->faker->boolean(90),
-            'creation_date' => $this->faker->dateTimeBetween('-2 years', 'now'),
-            'created_by' => \App\Models\User::factory(),
-            'last_modified_date' => $this->faker->dateTimeBetween('-1 year', 'now'),
-            'last_modified_by' => \App\Models\User::factory(),
         ];
     }
 }

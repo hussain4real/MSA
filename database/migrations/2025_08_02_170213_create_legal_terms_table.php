@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('legal_terms', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('org_id')->constrained('organizations');
+            $table->foreignId('organization_id')->constrained('organizations');
             $table->string('terms_code');
             $table->string('terms_serial');
             $table->string('terms_title');
@@ -23,10 +23,7 @@ return new class extends Migration
             $table->date('valid_from');
             $table->date('valid_to')->nullable();
             $table->boolean('active_flag')->default(true);
-            $table->timestamp('creation_date')->useCurrent();
-            $table->foreignId('created_by')->constrained('users');
-            $table->timestamp('last_modified_date')->useCurrent()->useCurrentOnUpdate();
-            $table->foreignId('last_modified_by')->constrained('users');
+            
             $table->timestamps();
         });
     }

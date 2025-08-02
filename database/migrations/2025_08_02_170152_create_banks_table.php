@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('banks', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('org_id')->constrained('organizations');
+            $table->foreignId('organization_id')->constrained('organizations');
             $table->string('bank_id')->unique();
             $table->string('bank_name');
             $table->text('address')->nullable();
@@ -23,10 +23,7 @@ return new class extends Migration
             $table->string('type')->nullable();
             $table->string('currency');
             $table->boolean('active_flag')->default(true);
-            $table->timestamp('creation_date')->useCurrent();
-            $table->foreignId('created_by')->constrained('users');
-            $table->timestamp('last_modified_date')->useCurrent()->useCurrentOnUpdate();
-            $table->foreignId('last_modified_by')->constrained('users');
+           
             $table->timestamps();
         });
     }

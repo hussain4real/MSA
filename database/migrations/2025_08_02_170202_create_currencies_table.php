@@ -13,15 +13,13 @@ return new class extends Migration
     {
         Schema::create('currencies', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('organization_id')->nullable()->constrained()->onDelete('cascade');
             $table->string('currency_code');
             $table->string('currency_name');
             $table->string('currency_country');
             $table->decimal('ex_rate', 10, 4);
             $table->boolean('active_flag')->default(true);
-            $table->timestamp('creation_date')->useCurrent();
-            $table->foreignId('created_by')->constrained('users');
-            $table->timestamp('last_modified_date')->useCurrent()->useCurrentOnUpdate();
-            $table->foreignId('last_modified_by')->constrained('users');
+           
             $table->timestamps();
         });
     }

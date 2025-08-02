@@ -18,7 +18,7 @@ class LegalTermSeeder extends Seeder
         foreach ($organizations as $organization) {
             \App\Models\LegalTerm::factory()
                 ->count(rand(2, 5))
-                ->create(['org_id' => $organization->id]);
+                ->create(['organization_id' => $organization->id]);
         }
     }
 }
