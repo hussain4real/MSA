@@ -14,7 +14,7 @@ class BankSeeder extends Seeder
     {
         // Create banks for existing organizations
         $organizations = \App\Models\Organization::all();
-        
+
         foreach ($organizations as $organization) {
             \App\Models\Bank::factory()
                 ->count(rand(1, 3))

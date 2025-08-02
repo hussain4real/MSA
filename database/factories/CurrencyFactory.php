@@ -26,9 +26,9 @@ class CurrencyFactory extends Factory
             ['code' => 'CHF', 'name' => 'Swiss Franc', 'country' => 'Switzerland'],
             ['code' => 'CNY', 'name' => 'Chinese Yuan', 'country' => 'China'],
         ];
-        
+
         $currency = $this->faker->randomElement($currencies);
-        
+
         return [
             'currency_code' => $currency['code'],
             'currency_name' => $currency['name'],

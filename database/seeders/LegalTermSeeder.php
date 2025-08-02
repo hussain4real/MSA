@@ -14,7 +14,7 @@ class LegalTermSeeder extends Seeder
     {
         // Create legal terms for existing organizations
         $organizations = \App\Models\Organization::all();
-        
+
         foreach ($organizations as $organization) {
             \App\Models\LegalTerm::factory()
                 ->count(rand(2, 5))
