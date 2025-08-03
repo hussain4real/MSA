@@ -21,7 +21,7 @@ class BankResource extends Resource
 {
     protected static ?string $model = Bank::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::BuildingLibrary;
 
     protected static ?string $cluster = OrganizationCluster::class;
 

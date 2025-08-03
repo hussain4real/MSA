@@ -21,7 +21,7 @@ class LegalTermResource extends Resource
 {
     protected static ?string $model = LegalTerm::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::DocumentText;
 
     protected static ?string $cluster = OrganizationCluster::class;
 
