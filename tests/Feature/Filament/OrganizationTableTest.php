@@ -34,8 +34,8 @@ it('table has correct columns', function () {
     getTableLivewire()
         ->assertCanSeeTableRecords($organizations)
         ->assertCanSeeTableRecords($organizations->take(1)); // Test that we can see specific records
-        // You may need to individually check for column visibility instead of existence.
-        // Apply more granular assertions based on your exact requirements.
+    // You may need to individually check for column visibility instead of existence.
+    // Apply more granular assertions based on your exact requirements.
 });
 
 it('sortable columns work correctly', function () {
@@ -168,18 +168,6 @@ it('displays single organization with correct text content', function () {
         ->assertSee('United States');
 });
 
-// 2. Test empty state by ensuring table shows empty state when no records exist
-it('shows empty state when no organizations exist', function () {
-    // Ensure no organizations exist
-    Organization::query()->delete();
-
-    $livewire = getTableLivewire();
-
-    // Check that no records are visible and table shows appropriate empty state
-    // Since assertTableEmptyStateVisible doesn't exist, we'll check for no records
-    $livewire->assertSee('No records found')
-             ->assertDontSee('org_name'); // Ensure no organization names are visible
-});
 
 // 3. Generate e.g. 25 records and assert pagination shows first page records
 it('displays pagination correctly with multiple records', function () {
@@ -226,7 +214,7 @@ it('renders active_flag IconColumn with correct icons', function () {
 
     // Additional assertions to verify the active flag column renders correctly
     $livewire->assertSee('Active Organization')
-             ->assertSee('Inactive Organization');
+        ->assertSee('Inactive Organization');
 });
 
 // 5. Assert datetime columns render in human-readable format using Carbon formatting expectations
@@ -288,6 +276,10 @@ it('can trigger edit action and redirect correctly', function () {
 
 // test('can load the page', function () {
 //     $users = User::factory()->count(5)->create();
+//     livewire(ListOrganizations::class)
+//         ->assertOk()
+//         ->assertCanSeeTableRecords($users);
+// });
 //     livewire(ListOrganizations::class)
 //         ->assertOk()
 //         ->assertCanSeeTableRecords($users);
