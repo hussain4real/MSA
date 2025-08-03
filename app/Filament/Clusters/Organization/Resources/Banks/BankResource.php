@@ -12,6 +12,7 @@ use App\Filament\Clusters\Organization\Resources\Banks\Schemas\BankInfolist;
 use App\Filament\Clusters\Organization\Resources\Banks\Tables\BanksTable;
 use App\Models\Bank;
 use BackedEnum;
+use Filament\Pages\Enums\SubNavigationPosition;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
@@ -25,7 +26,14 @@ class BankResource extends Resource
 
     protected static ?string $cluster = OrganizationCluster::class;
 
+    // protected static ?SubNavigationPosition $subNavigationPosition = SubNavigationPosition::Top;
+
     protected static ?string $recordTitleAttribute = 'bank_name';
+
+    public static function getNavigationBadge(): ?string
+    {
+        return static::getModel()::count() > 0 ? (string) static::getModel()::count() : null;
+    }
 
     public static function form(Schema $schema): Schema
     {
