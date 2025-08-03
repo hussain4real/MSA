@@ -27,6 +27,13 @@ class CurrencyResource extends Resource
 
     protected static ?string $recordTitleAttribute = 'currency_name';
 
+    protected static ?int $navigationSort = 4;
+
+    public static function getNavigationBadge(): ?string
+    {
+        return static::getModel()::count() > 0 ? (string) static::getModel()::count() : null;
+    }
+
     public static function form(Schema $schema): Schema
     {
         return CurrencyForm::configure($schema);

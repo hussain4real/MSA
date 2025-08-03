@@ -27,6 +27,13 @@ class OrganizationResource extends Resource
 
     protected static ?string $recordTitleAttribute = 'org_name';
 
+    protected static ?int $navigationSort = 1;
+
+    public static function getNavigationBadge(): ?string
+    {
+        return static::getModel()::count() > 0 ? (string) static::getModel()::count() : null;
+    }
+
     public static function form(Schema $schema): Schema
     {
         return OrganizationForm::configure($schema);

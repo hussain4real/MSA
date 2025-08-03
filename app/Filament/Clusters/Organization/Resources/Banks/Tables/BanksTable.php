@@ -18,35 +18,33 @@ class BanksTable
             ->columns([
                 TextColumn::make('organization_id')
                     ->numeric()
-                    ->sortable(),
+                    ->sortable()
+                    ->toggleable(isToggledHiddenByDefault: false),
                 TextColumn::make('bank_id')
-                    ->searchable(),
+                    ->searchable()
+                    ->toggleable(isToggledHiddenByDefault: false),
                 TextColumn::make('bank_name')
-                    ->searchable(),
+                    ->searchable()
+                    ->toggleable(isToggledHiddenByDefault: false),
                 TextColumn::make('account_number')
-                    ->searchable(),
+                    ->searchable()
+                    ->toggleable(isToggledHiddenByDefault: false),
                 TextColumn::make('iban_number')
-                    ->searchable(),
+                    ->searchable()
+                    ->toggleable(isToggledHiddenByDefault: false),
                 TextColumn::make('swift_code')
-                    ->searchable(),
+                    ->searchable()
+                    ->toggleable(isToggledHiddenByDefault: false),
                 TextColumn::make('type')
-                    ->searchable(),
+                    ->searchable()
+                    ->toggleable(isToggledHiddenByDefault: false),
                 TextColumn::make('currency')
-                    ->searchable(),
+                    ->searchable()
+                    ->toggleable(isToggledHiddenByDefault: false),
                 IconColumn::make('active_flag')
-                    ->boolean(),
-                TextColumn::make('creation_date')
-                    ->dateTime()
-                    ->sortable(),
-                TextColumn::make('created_by')
-                    ->numeric()
-                    ->sortable(),
-                TextColumn::make('last_modified_date')
-                    ->dateTime()
-                    ->sortable(),
-                TextColumn::make('last_modified_by')
-                    ->numeric()
-                    ->sortable(),
+                    ->boolean()
+                    ->toggleable(isToggledHiddenByDefault: false),
+        
                 TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()

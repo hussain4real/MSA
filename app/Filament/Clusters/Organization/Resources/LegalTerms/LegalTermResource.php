@@ -27,6 +27,8 @@ class LegalTermResource extends Resource
 
     protected static ?string $recordTitleAttribute = 'terms_code';
 
+    protected static ?int $navigationSort = 2;
+
     public static function form(Schema $schema): Schema
     {
         return LegalTermForm::configure($schema);
