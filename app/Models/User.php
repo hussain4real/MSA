@@ -21,6 +21,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'organization_id',
     ];
 
     /**
@@ -44,5 +45,63 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    // Main organization relationship
+    public function organization()
+    {
+        return $this->belongsTo(Organization::class);
+    }
+
+    // Relationships for created records
+    public function createdOrganizations()
+    {
+        return $this->hasMany(Organization::class, 'created_by');
+    }
+
+    public function createdBanks()
+    {
+        return $this->hasMany(Bank::class, 'created_by');
+    }
+
+    public function createdCurrencies()
+    {
+        return $this->hasMany(Currency::class, 'created_by');
+    }
+
+    public function createdLegalTerms()
+    {
+        return $this->hasMany(LegalTerm::class, 'created_by');
+    }
+
+    public function createdPorts()
+    {
+        return $this->hasMany(Port::class, 'created_by');
+    }
+
+    // Relationships for last modified records
+    public function lastModifiedOrganizations()
+    {
+        return $this->hasMany(Organization::class, 'last_modified_by');
+    }
+
+    public function lastModifiedBanks()
+    {
+        return $this->hasMany(Bank::class, 'last_modified_by');
+    }
+
+    public function lastModifiedCurrencies()
+    {
+        return $this->hasMany(Currency::class, 'last_modified_by');
+    }
+
+    public function lastModifiedLegalTerms()
+    {
+        return $this->hasMany(LegalTerm::class, 'last_modified_by');
+    }
+
+    public function lastModifiedPorts()
+    {
+        return $this->hasMany(Port::class, 'last_modified_by');
     }
 }
