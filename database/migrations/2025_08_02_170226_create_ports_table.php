@@ -24,7 +24,7 @@ return new class extends Migration
             $table->string('vessel_size')->nullable();
             $table->decimal('max_draft', 8, 2)->nullable();
             $table->boolean('active_flag')->default(true);
-            
+
             $table->timestamps();
         });
     }

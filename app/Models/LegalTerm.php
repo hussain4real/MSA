@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 class LegalTerm extends Model
 {
     /** @use HasFactory<\Database\Factories\LegalTermFactory> */
-    use HasFactory, BelongsToOrganization;
+    use BelongsToOrganization, HasFactory;
 
     protected $fillable = [
         'organization_id',

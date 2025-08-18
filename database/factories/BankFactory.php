@@ -19,7 +19,7 @@ class BankFactory extends Factory
         return [
             'organization_id' => \App\Models\Organization::factory(),
             'bank_id' => $this->faker->unique()->numerify('BNK########'),
-            'bank_name' => $this->faker->company() . ' Bank',
+            'bank_name' => $this->faker->company().' Bank',
             'address' => $this->faker->optional()->address(),
             'account_number' => $this->faker->numerify('##########'),
             'iban_number' => $this->faker->optional()->iban(),

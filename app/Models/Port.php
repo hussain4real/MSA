@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 class Port extends Model
 {
     /** @use HasFactory<\Database\Factories\PortFactory> */
-    use HasFactory, BelongsToOrganization;
+    use BelongsToOrganization, HasFactory;
 
     protected $fillable = [
         'organization_id',

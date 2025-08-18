@@ -12,7 +12,7 @@ trait SetsOrganizationId
     public function setOrganizationId($model): void
     {
         if (Auth::check() && Auth::user()->organization_id) {
-            if (!$model->organization_id) {
+            if (! $model->organization_id) {
                 $model->organization_id = Auth::user()->organization_id;
             }
         }

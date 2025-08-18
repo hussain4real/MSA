@@ -39,6 +39,8 @@ class DatabaseSeeder extends Seeder
             PortSeeder::class,
             BankSeeder::class,
             LegalTermSeeder::class,
+            CustomerSeeder::class,
+            VendorSeeder::class,
         ]);
     }
 }

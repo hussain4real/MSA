@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('currency_country');
             $table->decimal('ex_rate', 10, 4);
             $table->boolean('active_flag')->default(true);
-           
+
             $table->timestamps();
         });
     }

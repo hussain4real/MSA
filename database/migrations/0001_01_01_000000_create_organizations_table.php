@@ -25,7 +25,7 @@ return new class extends Migration
             $table->boolean('active_flag')->default(true);
             $table->string('org_city');
             $table->string('org_country');
-           
+
             $table->timestamps();
         });
     }

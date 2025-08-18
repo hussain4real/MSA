@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 class Currency extends Model
 {
     /** @use HasFactory<\Database\Factories\CurrencyFactory> */
-    use HasFactory, BelongsToOrganization;
+    use BelongsToOrganization, HasFactory;
 
     protected $fillable = [
         'organization_id',

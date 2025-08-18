@@ -23,7 +23,7 @@ return new class extends Migration
             $table->date('valid_from');
             $table->date('valid_to')->nullable();
             $table->boolean('active_flag')->default(true);
-            
+
             $table->timestamps();
         });
     }

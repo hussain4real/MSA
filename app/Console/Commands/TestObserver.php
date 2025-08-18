@@ -29,8 +29,9 @@ class TestObserver extends Command
         // Get a user
         $user1 = \App\Models\User::where('organization_id', 1)->first();
 
-        if (!$user1) {
+        if (! $user1) {
             $this->error('No user found in organization 1');
+
             return 1;
         }
 
@@ -78,12 +79,13 @@ class TestObserver extends Command
         $this->info("✓ LegalTerm created with organization_id: {$legalTerm->organization_id}");
 
         $this->info("\n=== Global Scope Test ===");
-        $this->info("Banks visible: " . \App\Models\Bank::count());
-        $this->info("Currencies visible: " . \App\Models\Currency::count());
-        $this->info("Ports visible: " . \App\Models\Port::count());
-        $this->info("LegalTerms visible: " . \App\Models\LegalTerm::count());
+        $this->info('Banks visible: '.\App\Models\Bank::count());
+        $this->info('Currencies visible: '.\App\Models\Currency::count());
+        $this->info('Ports visible: '.\App\Models\Port::count());
+        $this->info('LegalTerms visible: '.\App\Models\LegalTerm::count());
 
         $this->info("\n✅ All tenancy features working correctly!");
+
         return 0;
     }
 }

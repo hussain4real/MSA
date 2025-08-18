@@ -18,7 +18,7 @@ class OrganizationFactory extends Factory
     {
         return [
             'org_name' => $this->faker->company(),
-            'legal_name' => $this->faker->company() . ' Ltd.',
+            'legal_name' => $this->faker->company().' Ltd.',
             'registration_number' => $this->faker->unique()->numerify('REG########'),
             'tax_number' => $this->faker->optional()->numerify('TAX########'),
             'address' => $this->faker->optional()->address(),

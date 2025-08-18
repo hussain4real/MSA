@@ -1,8 +1,8 @@
 <?php
 
 use App\Filament\Clusters\Organization\Resources\Organizations\Pages\ListOrganizations;
-use App\Models\User;
 use App\Models\Organization;
+use App\Models\User;
 
 use function Pest\Livewire\livewire;
 
@@ -66,7 +66,7 @@ it('searchable columns work correctly', function () {
         'contact_person' => 'John Doe',
         'email_id' => 'john@alpha.com',
         'org_city' => 'New York',
-        'org_country' => 'USA'
+        'org_country' => 'USA',
     ]);
 
     $organization2 = Organization::factory()->create([
@@ -76,7 +76,7 @@ it('searchable columns work correctly', function () {
         'contact_person' => 'Jane Smith',
         'email_id' => 'jane@beta.com',
         'org_city' => 'London',
-        'org_country' => 'UK'
+        'org_country' => 'UK',
     ]);
 
     // Test org_name search
@@ -122,8 +122,6 @@ it('searchable columns work correctly', function () {
         ->assertCanNotSeeTableRecords([$organization2]);
 });
 
-
-
 it('visible columns are displayed correctly', function () {
     getTableLivewire()
         ->assertTableColumnVisible('org_name')
@@ -154,7 +152,7 @@ it('displays single organization with correct text content', function () {
         'contact_person' => 'John Smith',
         'email_id' => 'contact@testcorp.com',
         'org_city' => 'New York',
-        'org_country' => 'United States'
+        'org_country' => 'United States',
     ]);
 
     getTableLivewire()
@@ -167,7 +165,6 @@ it('displays single organization with correct text content', function () {
         ->assertSee('New York')
         ->assertSee('United States');
 });
-
 
 // 3. Generate e.g. 25 records and assert pagination shows first page records
 it('displays pagination correctly with multiple records', function () {
@@ -192,12 +189,12 @@ it('displays pagination correctly with multiple records', function () {
 it('renders active_flag IconColumn with correct icons', function () {
     $activeOrg = Organization::factory()->create([
         'org_name' => 'Active Organization',
-        'active_flag' => true
+        'active_flag' => true,
     ]);
 
     $inactiveOrg = Organization::factory()->create([
         'org_name' => 'Inactive Organization',
-        'active_flag' => false
+        'active_flag' => false,
     ]);
 
     $livewire = getTableLivewire();
@@ -209,7 +206,7 @@ it('renders active_flag IconColumn with correct icons', function () {
     // IconColumns typically render as different icons/colors for true/false values
     $livewire->assertSeeInOrder([
         'Active Organization',
-        'Inactive Organization'
+        'Inactive Organization',
     ]);
 
     // Additional assertions to verify the active flag column renders correctly
@@ -224,7 +221,7 @@ it('renders datetime columns in human-readable format', function () {
     $organization = Organization::factory()->create([
         'org_name' => 'DateTime Test Organization',
         'created_at' => $specificDate,
-        'updated_at' => $specificDate->copy()->addHours(2) // 2 hours later
+        'updated_at' => $specificDate->copy()->addHours(2), // 2 hours later
     ]);
 
     $livewire = getTableLivewire();
@@ -240,8 +237,6 @@ it('renders datetime columns in human-readable format', function () {
     expect($organization->created_at)->toBeInstanceOf(\Carbon\Carbon::class);
     expect($organization->updated_at)->toBeInstanceOf(\Carbon\Carbon::class);
 });
-
-
 
 // Action tests - Step 5: Add action tests
 
@@ -270,9 +265,6 @@ it('can trigger edit action and redirect correctly', function () {
         ->callTableAction('edit', $organization->id)
         ->assertSuccessful();
 });
-
-
-
 
 // test('can load the page', function () {
 //     $users = User::factory()->count(5)->create();

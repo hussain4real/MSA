@@ -44,7 +44,7 @@ class BanksTable
                 IconColumn::make('active_flag')
                     ->boolean()
                     ->toggleable(isToggledHiddenByDefault: false),
-        
+
                 TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()

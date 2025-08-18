@@ -19,7 +19,7 @@ class PortFactory extends Factory
         return [
             'organization_id' => \App\Models\Organization::factory(),
             'port_code' => $this->faker->unique()->bothify('???##'),
-            'port_name' => $this->faker->city() . ' Port',
+            'port_name' => $this->faker->city().' Port',
             'port_country' => $this->faker->country(),
             'port_type' => $this->faker->randomElement(['Container', 'Bulk', 'Oil', 'Cruise', 'Ferry']),
             'longitude' => $this->faker->optional()->longitude(),

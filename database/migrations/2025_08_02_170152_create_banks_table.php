@@ -23,7 +23,7 @@ return new class extends Migration
             $table->string('type')->nullable();
             $table->string('currency');
             $table->boolean('active_flag')->default(true);
-           
+
             $table->timestamps();
         });
     }
