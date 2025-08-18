@@ -33,16 +33,6 @@ enum ContactType: string implements HasLabel, HasIcon, HasColor, HasDescription
         };
     }
 
-    public function getDescription(): string|Htmlable|null
-    {
-        return match ($this) {
-            self::Primary => __('Primary contact for general inquiries.'),
-            self::Billing => __('Contact for billing and payment issues.'),
-            self::Technical => __('Technical support contact.'),
-            self::Operations => __('Operations contact for internal matters.'),
-        };
-    }
-
     public function getColor(): string|array|null
     {
         return match ($this) {
@@ -53,4 +43,13 @@ enum ContactType: string implements HasLabel, HasIcon, HasColor, HasDescription
         };
     }
 
+    public function getDescription(): string|Htmlable|null
+    {
+        return match ($this) {
+            self::Primary => __('Primary contact for general inquiries.'),
+            self::Billing => __('Contact for billing and payment issues.'),
+            self::Technical => __('Technical support contact.'),
+            self::Operations => __('Operations contact for internal matters.'),
+        };
+    }
 }

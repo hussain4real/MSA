@@ -24,15 +24,14 @@ enum ApprovalStatus: string implements HasLabel, HasColor, HasIcon, HasDescripti
         return __($this->value);
     }
 
-    public function getDescription(): string|Htmlable|null
+    public function getIcon(): string|BackedEnum|null
     {
-         return match ($this) {
-            self::Pending => 'Awaiting review and approval.',
-            self::Approved => 'Approved and ready to use.',
-            self::Rejected => 'Rejected and cannot proceed.',
+        return match ($this) {
+            self::Pending => Heroicon::Clock,
+            self::Approved => Heroicon::Check,
+            self::Rejected => Heroicon::XMark,
         };
     }
-
     public function getColor(): string|array|null
     {
         return match ($this) {
@@ -42,12 +41,12 @@ enum ApprovalStatus: string implements HasLabel, HasColor, HasIcon, HasDescripti
         };
     }
 
-    public function getIcon(): string|BackedEnum|null
+    public function getDescription(): string|Htmlable|null
     {
-         return match ($this) {
-            self::Pending => Heroicon::Clock,
-            self::Approved => Heroicon::Check,
-            self::Rejected => Heroicon::XMark,
+        return match ($this) {
+            self::Pending => __('Awaiting review and approval.'),
+            self::Approved => __('Approved and ready to use.'),
+            self::Rejected => __('Rejected and cannot proceed.'),
         };
     }
 }
